@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+<body>
+  <div style="display: flex; justify-content: end;">
+    <a href="/" class="link-info m-1 ">Assignment</a>
+    <a href="/student" class="link-info m-1 ">Student</a>
+    <a href="/check" class="link-info m-1 ">ดูงาน</a>
+  </div>
+    <form action="/student" method="post">
+        <div class="mb-3">
+          <label for="id" class="form-label">Student ID</label>
+          <input type="text" class="form-control" name="id">
+        </div>
+        <div class="mb-3">
+          <label for="assignment_id" class="form-label">Assignment ID</label>
+          <input type="text" class="form-control" name="assignment_id">
+          <div class="form-text">ดูได้จากหน้าดูงานตามcolumnแรก ตัวอย่าง 1 2 3 ต้องใส่ให้ตรง</div>
+        </div>
+        <div class="mb-3">
+          <label for="name" class="form-label">Assignment Name</label>
+          <input type="text" class="form-control" name="name">
+        </div>
+        <div class="mb-3">
+            <label for="description" class="form-label">Description</label>
+            <input type="text" class="form-control" name="description">
+          </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+
+      <% if(messages.error) { %>
+        <div class="alert alert-danger" role="alert"><%= messages.error %></div>
+      <% } %>
+      <% if(messages.suscess) { %>
+        <div class="alert alert-success" role="alert"><%= messages.suscess %></div>
+      <% } %>
+      <script language="javascript" src="js/bootstrap.min.js"></script>
+</body>
+</html>

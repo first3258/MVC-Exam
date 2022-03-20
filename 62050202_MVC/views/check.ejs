@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Books</title>
+    <!-- CSS only -->
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+</head>
+<body>
+
+    <div style="display: flex; justify-content: end;">
+        <a href="/" class="link-info m-1 ">Assignment</a>
+        <a href="/student" class="link-info m-1 ">Student</a>
+        <a href="/check" class="link-info m-1 ">ดูงาน</a>
+    </div>
+
+    <div class="card">
+        <div class="card-header">
+            <ul class="nav nav-pills w-100">
+                <li class="nav-link">Assignment</li>
+            </ul>
+        </div>
+        <div class="card-body">
+            <% if(data.length){ %>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Assignment Name</th>
+                            <th scope="col">Description</th>
+                            <th width="200px">Due Date</th>
+                            <th width="200px">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% for(let i = 0; i < data.length; i++) { %>
+                            <tr>    
+                                <th scope="row"><%= data[i].assignment_id %></th>
+                                <td><%= data[i].assignment__name %></td>
+                                <td><%= data[i].description %></td>
+                                <td><%= data[i].date %></td>
+                                <td>
+                                    <a href="../check/view/<%= data[i].assignment_id %>" class="btn btn-primary edit">View</a>       
+                                </td>
+                            </tr>
+                        <% } %>
+                    </tbody>
+                </table>
+            <% } %>
+            <!-- if resule is empty -->
+            
+            <% if(!data.length) { %>
+                <p class="text-center text-danger"> No book found!!</p>
+            <% } %> 
+        </div>
+    </div>
+
+
+
+
+    <!-- JavaScript Bundle with Popper -->
+    <script language="javascript" src="js/bootstrap.min.js"></script>
+</body>
+</html>
